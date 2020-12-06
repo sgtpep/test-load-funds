@@ -1,8 +1,8 @@
 import CustomerId from "./types/CustomerId";
 import LoadPayload from "./types/LoadPayload";
 import LoadState from "./types/LoadState";
-import isSameDay from "./isSameDay";
-import isSameWeek from "./isSameWeek";
+import isSameDay from "./helpers/isSameDay";
+import isSameWeek from "./helpers/isSameWeek";
 import loadStates from "./loadStates";
 
 const getLoadState = (customerId: CustomerId, date: Date): LoadState => {

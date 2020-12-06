@@ -1,12 +1,12 @@
 import buildLoadResult from "./buildLoadResult";
 import getLoadState from "./getLoadState";
 import isLoadAccepted from "./isLoadAccepted";
-import isMainModule from "./isMainModule";
-import outputLine from "./outputLine";
+import isMainModule from "./helpers/isMainModule";
+import outputLine from "./helpers/outputLine";
 import parseLoadPayload from "./parseLoadPayload";
-import readLines from "./readLines";
+import readLines from "./helpers/readLines";
 import setLoadState from "./setLoadState";
-import truncateFile from "./truncateFile";
+import truncateFile from "./helpers/truncateFile";
 
 const loadFunds = async (
   inputPath: string,
