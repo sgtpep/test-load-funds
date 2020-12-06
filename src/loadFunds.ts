@@ -19,7 +19,7 @@ const loadFunds = async (
     const loadPayload = parseLoadPayload(line);
     const { customerId, date, id, loadAmount } = loadPayload;
     const loadState = getLoadState(customerId, date);
-    const { dailyAmount, dayLoads, ids, weeklyAmount } = loadState;
+    const { dailyAmount, dailyLoads, ids, weeklyAmount } = loadState;
     if (ids.has(id)) {
       continue;
     }
@@ -29,7 +29,7 @@ const loadFunds = async (
       ids: ids.add(id),
       ...(isAccepted && {
         dailyAmount: dailyAmount + loadAmount,
-        dayLoads: dayLoads + 1,
+        dailyLoads: dailyLoads + 1,
         lastDate: date,
         weeklyAmount: weeklyAmount + loadAmount,
       }),

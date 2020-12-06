@@ -10,7 +10,7 @@ const getLoadState = (customerId: CustomerId, date: Date): LoadState => {
   if (!loadState) {
     return {
       dailyAmount: 0,
-      dayLoads: 0,
+      dailyLoads: 0,
       ids: new Set<LoadPayload["id"]>(),
       lastDate: new Date(0),
       weeklyAmount: 0,
@@ -21,7 +21,7 @@ const getLoadState = (customerId: CustomerId, date: Date): LoadState => {
     ...loadState,
     ...(!isSameDay(date, lastDate) && {
       dailyAmount: 0,
-      dayLoads: 0,
+      dailyLoads: 0,
     }),
     ...(!isSameWeek(date, lastDate) && {
       weeklyAmount: 0,

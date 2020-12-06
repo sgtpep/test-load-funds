@@ -3,7 +3,7 @@ import LoadPayload from "./LoadPayload";
 
 type LoadState = {
   dailyAmount: Amount;
-  dayLoads: number;
+  dailyLoads: number;
   ids: Set<LoadPayload["id"]>;
   lastDate: Date;
   weeklyAmount: Amount;

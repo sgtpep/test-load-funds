@@ -17,7 +17,7 @@
     "format": "prettier -l --write src",
     "lint": "eslint --cache --fix --max-warnings=0 'src/**/*'",
     "start": "./load-funds",
-    "test": "jest",
+    "test": "jest --coverage",
     "typecheck": "tsc"
   },
   "type": "module"
