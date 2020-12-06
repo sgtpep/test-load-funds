@@ -1,7 +1,7 @@
 import Amount from "./types/Amount";
 import LoadPayload from "./types/LoadPayload";
 
-const parseAmount = (amount: string): Amount =>
+export const parseAmount = (amount: string): Amount =>
   Number(amount.replace(/^\$/, ""));
 
 const parseLoadPayload = (payload: string): LoadPayload => {

@@ -2,10 +2,10 @@ import buildLoadResult from "./buildLoadResult";
 import getLoadState from "./getLoadState";
 import isLoadAccepted from "./isLoadAccepted";
 import isMainModule from "./helpers/isMainModule";
+import loadStates from "./loadStates";
 import outputLine from "./helpers/outputLine";
 import parseLoadPayload from "./parseLoadPayload";
 import readLines from "./helpers/readLines";
-import setLoadState from "./setLoadState";
 import truncateFile from "./helpers/truncateFile";
 
 const loadFunds = async (
@@ -24,7 +24,7 @@ const loadFunds = async (
       continue;
     }
     const isAccepted = isLoadAccepted(loadPayload, loadState);
-    setLoadState(customerId, {
+    loadStates.set(customerId, {
       ...loadState,
       ids: ids.add(id),
       ...(isAccepted && {
