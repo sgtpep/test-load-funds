@@ -1,17 +1,17 @@
 import LoadPayload from "./types/LoadPayload";
 
-type LoadOutput = Pick<LoadPayload, "id"> & {
+type LoadResult = Pick<LoadPayload, "id"> & {
   accepted: boolean;
   customer_id: LoadPayload["customerId"];
 };
 
-const buildLoadOutput = (
+const buildLoadResult = (
   { customerId, id }: LoadPayload,
   isAccepted: boolean
-): LoadOutput => ({
+): LoadResult => ({
   id,
   customer_id: customerId,
   accepted: isAccepted,
 });
 
-export default buildLoadOutput;
+export default buildLoadResult;

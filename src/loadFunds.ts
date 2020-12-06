@@ -1,4 +1,4 @@
-import buildLoadOutput from "./buildLoadOutput";
+import buildLoadResult from "./buildLoadResult";
 import getLoadState from "./getLoadState";
 import isLoadAccepted from "./isLoadAccepted";
 import isMainModule from "./isMainModule";
@@ -41,8 +41,8 @@ const loadFunds = async (
         weeklyAmount: weeklyAmount + loadAmount,
       }),
     });
-    const loadOutput = buildLoadOutput(loadPayload, isAccepted);
-    outputLine(loadOutput, outputPath);
+    const loadResult = buildLoadResult(loadPayload, isAccepted);
+    outputLine(loadResult, outputPath);
   }
 };
 
