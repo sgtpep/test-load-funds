@@ -1,33 +1,29 @@
 import CustomerId from "./types/CustomerId";
 import LoadPayload from "./types/LoadPayload";
 import LoadState from "./types/LoadState";
+import isSameDay from "./isSameDay";
+import isSameWeek from "./isSameWeek";
 import loadStates from "./loadStates";
 
-const getLoadState = (
-  customerId: CustomerId,
-  { startOfDayTimestamp, startOfWeekTimestamp }: LoadPayload
-): LoadState => {
+const getLoadState = (customerId: CustomerId, date: Date): LoadState => {
   const loadState = loadStates.get(customerId);
   if (!loadState) {
     return {
       dailyAmount: 0,
       dayLoads: 0,
       ids: new Set<LoadPayload["id"]>(),
-      lastStartOfDayTimestamp: 0,
-      lastStartOfWeekTimestamp: 0,
+      lastDate: new Date(0),
       weeklyAmount: 0,
     };
   }
-  const { lastStartOfDayTimestamp, lastStartOfWeekTimestamp } = loadState;
-  const isSameDay = startOfDayTimestamp === lastStartOfDayTimestamp;
-  const isSameWeek = startOfWeekTimestamp === lastStartOfWeekTimestamp;
+  const { lastDate } = loadState;
   return {
     ...loadState,
-    ...(!isSameDay && {
+    ...(!isSameDay(date, lastDate) && {
       dailyAmount: 0,
       dayLoads: 0,
     }),
-    ...(!isSameWeek && {
+    ...(!isSameWeek(date, lastDate) && {
       weeklyAmount: 0,
     }),
   };

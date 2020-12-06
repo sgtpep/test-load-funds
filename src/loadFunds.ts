@@ -17,14 +17,8 @@ const loadFunds = async (
   }
   for await (const line of readLines(inputPath)) {
     const loadPayload = parseLoadPayload(line);
-    const {
-      customerId,
-      id,
-      loadAmount,
-      startOfDayTimestamp,
-      startOfWeekTimestamp,
-    } = loadPayload;
-    const loadState = getLoadState(customerId, loadPayload);
+    const { customerId, date, id, loadAmount } = loadPayload;
+    const loadState = getLoadState(customerId, date);
     const { dailyAmount, dayLoads, ids, weeklyAmount } = loadState;
     if (ids.has(id)) {
       continue;
@@ -36,8 +30,7 @@ const loadFunds = async (
       ...(isAccepted && {
         dailyAmount: dailyAmount + loadAmount,
         dayLoads: dayLoads + 1,
-        lastStartOfDayTimestamp: startOfDayTimestamp,
-        lastStartOfWeekTimestamp: startOfWeekTimestamp,
+        lastDate: date,
         weeklyAmount: weeklyAmount + loadAmount,
       }),
     });

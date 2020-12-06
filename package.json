@@ -13,7 +13,7 @@
     "ts-jest": "26.4.4"
   },
   "scripts": {
-    "check": "for name in typecheck lint format test; do npm run \"$name\"; done",
+    "check": "set -e; for name in typecheck lint format test; do npm run \"$name\"; done",
     "format": "prettier -l --write src",
     "lint": "eslint --cache --fix --max-warnings=0 'src/**/*'",
     "start": "./load-funds",
