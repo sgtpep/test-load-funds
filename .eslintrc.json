@@ -8,14 +8,6 @@
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended"
   ],
-  "overrides": [
-    {
-      "files": "*.test.*",
-      "rules": {
-        "@typescript-eslint/no-empty-function": "off"
-      }
-    }
-  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "sourceType": "module"

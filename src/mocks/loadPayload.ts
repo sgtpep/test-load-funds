@@ -1,9 +1,9 @@
 import LoadPayload from "../types/LoadPayload";
 
 const loadPayload: LoadPayload = {
-  customerId: "customer1",
+  customerId: "customer",
   date: new Date("2000-01-01T00:00:00Z"),
-  id: "load1",
+  id: "load",
   loadAmount: 1_000,
 };
 
