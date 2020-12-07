@@ -1,7 +1,6 @@
 import buildLoadResult from "./buildLoadResult";
 import getLoadState from "./getLoadState";
 import isLoadAccepted from "./isLoadAccepted";
-import isMainModule from "./helpers/isMainModule";
 import loadStates from "./loadStates";
 import outputLine from "./helpers/outputLine";
 import parseLoadPayload from "./parseLoadPayload";
@@ -9,7 +8,7 @@ import readLines from "./helpers/readLines";
 import truncateFile from "./helpers/truncateFile";
 
 const loadFunds = async (
-  inputPath: string,
+  inputPath = "input.txt",
   outputPath?: string
 ): Promise<void> => {
   if (outputPath) {
@@ -26,7 +25,7 @@ const loadFunds = async (
     const isAccepted = isLoadAccepted(loadPayload, loadState);
     loadStates.set(customerId, {
       ...loadState,
-      ids: ids.add(id),
+      ids: new Set([...ids, id]),
       ...(isAccepted && {
         dailyAmount: dailyAmount + loadAmount,
         dailyLoads: dailyLoads + 1,
@@ -40,7 +39,3 @@ const loadFunds = async (
 };
 
 export default loadFunds;
-
-if (isMainModule(import.meta)) {
-  await loadFunds(process.argv[2] ?? "input.txt", process.argv[3]);
-}

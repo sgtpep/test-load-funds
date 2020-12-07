@@ -1,9 +1,5 @@
 export default {
   collectCoverageFrom: ["src/**/*"],
-  coveragePathIgnorePatterns: [
-    // See: https://github.com/kulshekhar/ts-jest/issues/1174, https://github.com/kulshekhar/ts-jest/issues/906, https://github.com/facebook/jest/issues/9430
-    "src/loadFunds.ts",
-  ],
   coverageReporters: ["text"],
   coverageThreshold: {
     global: {
