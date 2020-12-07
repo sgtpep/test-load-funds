@@ -44,6 +44,7 @@ Process loads line-by-line from `input-file` and write results to `output-file`:
 
 ## Comments
 
+- `./src/loadFunds.ts` is an entry point to the script.
 - An experimental ESM-compatible `ts-node` script is used to run TypeScript code without transpilation.
 - Complexity: speed — _O(1)_; memory — _O(1)_ (best case) and _O(n)_ (worst case), because of previously observed item ids stored in-memory.
 - Added nominal types to some primitive values (like ids, amounts, etc.) to distinguish them from basic types. See https://basarat.gitbook.io/typescript/main-1/nominaltyping, https://github.com/Microsoft/TypeScript/issues/202 for details.
