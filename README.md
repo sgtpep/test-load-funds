@@ -1,4 +1,4 @@
-# test-load-funds
+# test-load-funds ![CI](https://github.com/sgtpep/test-load-funds/workflows/CI/badge.svg)
 
 A program that accepts or declines attempts to load funds into customers' accounts based on the following limits:
 
