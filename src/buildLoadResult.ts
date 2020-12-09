@@ -1,9 +1,9 @@
 import LoadPayload from "./types/LoadPayload";
 
-type LoadResult = Pick<LoadPayload, "id"> & {
+interface LoadResult extends Pick<LoadPayload, "id"> {
   accepted: boolean;
   customer_id: LoadPayload["customerId"];
-};
+}
 
 const buildLoadResult = (
   { customerId, id }: LoadPayload,
